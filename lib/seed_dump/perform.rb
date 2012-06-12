@@ -92,6 +92,8 @@ module SeedDump
         "#{value}".inspect
       elsif value.is_a?(Date) || value.is_a?(Time)
         %("#{value.to_s(:db)}")
+      elsif value.is_a?(BigDecimal)
+        "new BigDecimal(#{value.to_s})"
       else
         value.inspect
       end
